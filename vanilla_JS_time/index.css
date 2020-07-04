@@ -1,0 +1,65 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+/* 이론수업 */
+/* .btn {
+    cursor: pointer;
+}
+h1 {
+    color: white;
+    transition:  color .4s ease;
+}
+
+.clicked{
+    color:#95a5a6 ;
+} */
+
+/* making a clock ---------------------------------------- */
+.js-clock {
+  text-align: center;
+}
+li {
+  list-style: none;
+}
+h1 {
+  font-size: 100px;
+  color: rgb(2, 2, 2);
+}
+h4 {
+  font-size: 40px;
+  text-align: center;
+}
+form {
+  text-align: center;
+}
+.form,
+.greetings {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+.js-toDoList {
+  width: 40%;
+  margin: 10px auto 0;
+  background-color: rgba(255, 255, 255, 0.466);
+}
+@keyframes fedeIn {
+  form {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: auto;
+  z-index: -1;
+  animation: fedeIn 0.5s linear;
+}

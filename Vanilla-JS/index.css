@@ -1,0 +1,122 @@
+/* reset */
+* {margin: 0; padding: 0;}
+li{list-style: none;}
+
+/* common */
+button {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(3, 3, 3);
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+}
+button::after{
+  display: block;
+  content: "";
+  width: 26px;
+  height: 14px;
+  position: absolute;
+  left: -6px;
+  top: 30%;
+  z-index: 10;
+  transform: rotate(-20deg);
+  
+  transition:  cubic-bezier(0.4, 0, 0.54, 0.57)  0.2s;
+}
+button:hover::after {
+  background-color:#66191980 ;
+}
+.form,
+.greetings {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+input {
+  border: none;
+  width: 100%;
+  background-color: #dfe6e965;
+  height: 3em;
+  margin-bottom: 3px;
+  box-sizing: border-box;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/*  */
+.vanilla-wrap {
+  display: flex;
+  padding: 2% 1%;
+  margin: 0 auto;
+  max-width: 1000px;
+  min-width: 955px;
+  height: 100vh;
+  box-sizing: border-box;
+
+}
+.vanilla-wrap > div {
+  position: relative;
+  overflow: hidden;
+}
+.vanilla-wrap > div + div {
+  padding-left: 30px;
+}
+
+/* backgroundImg */
+.background-img {
+  width: 60%;
+}
+.bgImage{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height:  100%;
+}
+/* content */
+.content {
+  width: 40%;
+}
+/* js-clock */
+.js-clock{
+  font-size: 2.7em;
+  color:#455257 ;
+  text-align: center;
+}
+
+/* greeting */
+h4{
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  text-align: right;
+  color: #898a78d7;
+}
+
+/* js-toDoList */
+.js-toDoList {
+  margin-top:20px ;
+  width: 100%;
+
+}
+.js-toDoList > li{
+  display: flex;
+   padding: 2px 6px; 
+   box-sizing: border-box;
+   border-bottom: 1px solid rgba(116, 138, 146, 0.212);
+   margin-bottom: 10px;
+   line-height: 50px;
+   position: relative;
+}
+.js-toDoList > li > span {
+  width: 80%;
+}
+
