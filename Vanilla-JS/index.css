@@ -85,6 +85,7 @@ input {
 /* content */
 .content {
   width: 40%;
+  position: relative;
 }
 /* js-clock */
 .js-clock{
@@ -99,6 +100,7 @@ h4{
   font-size: 1.5em;
   text-align: right;
   color: #898a78d7;
+  
 }
 
 /* js-toDoList */
@@ -118,5 +120,11 @@ h4{
 }
 .js-toDoList > li > span {
   width: 80%;
+}
+
+.js-weather{
+  position: absolute;
+  left: 33px;
+  top: 108px;
 }
 
