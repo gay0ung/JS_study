@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VARIABLES</title>
+</head>
+<body>
+  <!-- 1. let | const | var -->
+  <script>
+    // var : 기존에 사용했던 변수
+    var name = "ga young";
+
+    name = "sun woo";
+
+    // const : 변수를 바꿀수 없다.
+    //const name = "ga young"
+    // name = "sun woo" -> ❌
+    
+    const person = {
+      name: "gayoung",
+    }
+
+    person.name="sun woo"
+    // 하지만 객체인 경우에는 바꿀수 있다 
+    // 완전한 보호라고는 할수 없다.
+  </script>
+
+  <!-- 2. Dead Zone -->
+  <script>
+    //왜 var 대신 let을 써야 하는가?
+    // var nyName = "ga young"
+    // console.log(nyName);
+    // 오류가 나지 않는다
+
+    // console.log(nyName);
+    // var nyName = "ga young"
+    // undefined 결과가 나온다.
+
+    console.log(nyName);
+    let nyName = "ga young";
+    // 경고를 확실하게 해준다.
+  </script>
+
+  <!-- 3.Block Scope -->
+  <script>
+
+  </script>
+
+  <!-- The future of 'var' -->
+  <script>
+
+  </script>
+</body>
+</html>
