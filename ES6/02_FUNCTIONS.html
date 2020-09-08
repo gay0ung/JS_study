@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions</title>
+</head>
+<body>
+  <button>clicked</button>
+  <script>
+    /* 1. arrow functions */
+    function nameof(arg){}
+    //arrow function
+    () => {}
+
+    const names = ['nico', 'lynn', 'flynn']
+
+    names.map((el)=>{
+      console.log(el + "😊");
+    })
+
+
+    /* 2. this in ()=>{} */
+    const button = document.querySelector("button");
+
+    // button.addEventListener("click", function(){
+    //   this // button을 가르킨다.
+    //   console.log("i have been clicked");
+    //   console.log(this);
+    // })
+
+    button.addEventListener("click",  () => {
+        this // window를 가르킨다. window를 obj로 가지고 있다.
+        //console.log(this);
+    })
+
+    const gayoung = {
+      name:'gayoung',
+      age:26,
+      addYear(){
+       this.age++
+      } 
+    };
+
+    //console.log(gayoung);
+    gayoung.addYear();
+    console.log(gayoung.age);
+
+    /* arrow functon in the real world*/
+    const emails = [
+      "nco@no.com",
+      "naver@goolge.com",
+      "young@gmail.com",
+      "cico@nomad.com",
+      "noco@gmail.com"
+    ]
+
+    //const Email = emails.find(item => item.includes("@gmail.com"))
+    //console.log(Email);
+    // find() https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    // include() https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+
+    // const noGmail = emails.filter(el => !el.includes("@gmail"))
+    // console.log(noGmail)
+    // filter()  https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+    const userid = emails.forEach(el => console.log(el.split("@")[0]))
+    const user = emails.map((el,idx) =>({
+      username:el.split("@")[0],
+      points:idx
+    }))
+
+    console.table(user);
+
+
+    //forEach()  https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    // map()  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+    /* default values */
+    function sayHi(name = "anon"){
+      return "Hello " + name;
+    }
+    console.log(sayHi());
+
+    const sayHello = (name ="anon") => "hello " + name
+
+    console.log(sayHello("young"));
+    
+  </script>
+</body>
+</html>
