@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.Strings</title>
+</head>
+<body>
+  <div class="wrapper"></div>
+  <script>
+    /* 1.strings */
+    const sayHello = (name = "anon") => `hello ${name} lovely to have you `
+    //console.log(sayHello("young"));
+
+    const add = (a, b) => a * b;
+    //console.log(`hello how are you ${add(2,3)}`);
+
+    /* 2.HTML Fragments */
+    //const wrapper  = document.querySelector(".wrapper");
+
+    //const addWelcom = ()=>{
+      // const div = document.createElement("div");
+      // const h1 = document.createElement("h1");
+
+      // h1.innerText = "hello~";
+      // h1.className = "sexyTitle" 
+
+      // div.append(h1);
+      // wrapper.append(div)
+
+      //frgments만들기
+      const div = `
+        <div class="hello">
+          <h1 class="sexyTitle">Hello🤗</h1>
+        </div>
+      `;
+
+     // wrapper.innerHTML = div;
+    //}
+
+    //setTimeout(addWelcom,1000)
+    /* 3.THML Fragments part Two */
+    const wrapper = document.querySelector('.wrapper');
+
+    const friends = ["me", "olive", "nico", "mark"];
+
+    const list = `
+    <h1> People i love</h1>
+    <ul>
+        ${friends.map(friend => `<li>💜 ${friend}</li>`).join(' ')}
+    </ul>
+    `
+
+   // wrapper.innerHTML = list
+    /* 4.Cloning Styled Components */ 
+    const styled = (aElemnt)=> {
+      const el = document.createElement(aElemnt);
+
+      return (arg) => {
+        const styles = arg[0] ;
+        el.style = styles;
+        return el;
+      };
+    }
+
+    const title = styled("h1")`
+      background-color:red;
+      color:blue;
+    `;
+
+    const subtitle = styled("span")`
+      color:green;
+    `
+    title.innerText = " We just cloned";
+    subtitle.innerText = "We just cloned"
+
+    document.body.append(title, subtitle)
+
+    console.log(title);
+    /* 5.More String Improvements */
+    // 5-1 include
+    const isEmail  = email => email.includes("@");
+
+    console.log(isEmail("young@naver.com"));
+    //5-2 repeat
+    const CC_NUMBER = "6060";
+
+    const displayName = `${"*".repeat(10)}${CC_NUMBER}`;
+
+    console.log(displayName);
+    //5-3 startsWith() | endsWith()
+    const name = "Mrs. gayoung";
+
+    console.log(name.startsWith("Mrs")); //true
+    console.log(name.endsWith("Mrs")); //flase
+  </script>
+</body>
+</html>
