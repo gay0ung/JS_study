@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.Structuring</title>
+</head>
+<body>
+<!-- 1.object  -->
+  <script>
+    // const settings = {
+    //   notifications: {
+    //     // follow: true,
+    //     alerts: true,
+    //     unfollow: false
+    //   },
+    //   color:{
+    //     theme:"dark"
+    //   }
+    // }
+    
+    //const {원하는 객체 key값} = 객체를 가지고 있는 변수명
+    //const { notifications : {해당객체 안에 있는 값}} = settings
+    //const { notifications } = settings
+    //const { notifications : { follow}} = settings
+    // const { notifications : {follow = false}={}} = settings;
+    
+    // console.log(follow);
+
+  </script>
+<!-- 2.array -->
+  <script>
+    const days = () => ["Mon", "Tue", "Wed"];
+
+    const [mon, tue, wed, thu = "Thu"] = days();
+    console.log(mon, tue, wed, thu);
+  </script>
+<!-- 3.renaming -->
+  <script>
+  const settings2 = {
+    color: {
+      chosen_color: "dark"
+    }
+  }
+    // const {
+    //   color:{chosen_color:chosenColor = "ligth"} 
+    // } = settings2
+
+    // 똑같은변수명이 있을경우에
+    let chosenColor = "blue"
+    //console.log(chosenColor);
+
+    ({ color: { chosen_color:chosenColor = "light" }} = settings2)
+
+    //console.log(chosenColor);
+  </script>
+<!-- 4.function -->
+  <script>
+    function saveSettings({ notifications,color:{theme}}){
+      console.log(notifications,theme);
+    }
+
+    saveSettings({
+      notifications:{
+        follow: true,
+        alert: true,
+        mrk: true,
+      },
+      color:{
+        theme:"blue"
+      }
+    })
+  </script>
+<!-- 5.value shorthands -->
+  <script>
+    // const follow = checkFollow();
+    // const alert = checkAlert()
+
+    // const settingsFn = {
+    //   notifications:{
+    //     follow,
+    //     alert
+    //   }
+    // }
+  </script>
+<!-- 6.swapping and skipping -->
+  <script>
+    let one = 2
+    let two = 1
+
+    const ch = [one,two]=[two, one]
+  // [two,one] = [2,1]
+
+    console.log(ch);
+
+    // 마지막 두개만 불러오고 싶을때 skipping
+   const number = ["one","two","three","four","five"];
+
+   const [, , , four,five] = number;
+
+   console.log(four,five);
+  </script>
+</body>
+</html>
