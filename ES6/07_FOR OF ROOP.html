@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOR OF ROOP</title>
+</head>
+<body>
+  <script>
+    const friends = ["Nico","Lynn", "young", "Olive","Jame","Rou","Jenny"]
+    // 루프는 같은 일을 반복한다.배열만 가능하다.
+    friends.forEach((el,idx,arr)=>console.log(el,idx,arr))
+
+    //for .. of 배열과 문자도 가능하다.
+    // 배열을 원하는 곳에 멈출수 있다.
+    for(const friend of friends){
+        if (friend === "Olive") {
+        break // Olive전까지 결과가 나온후 loop를 빠져나온다.
+        // continue Olive를 제외한 나머지 것들만 나온후 loop를 빠져나온다.
+      } else {
+        console.log(`str : ${friend}`);
+      }
+
+    }
+
+    for (const letters of "abcdefghijklmnop") {
+        console.log(`str : ${letters}`);
+      }
+  </script>
+</body>
+</html>
