@@ -30,10 +30,10 @@
   </script>
 <!-- 2.array -->
   <script>
-    const days = () => ["Mon", "Tue", "Wed"];
+    // const days = () => ["Mon", "Tue", "Wed"];
 
-    const [mon, tue, wed, thu = "Thu"] = days();
-    console.log(mon, tue, wed, thu);
+    // const [mon, tue, wed, thu = "Thu"] = days();
+    // console.log(mon, tue, wed, thu);
   </script>
 <!-- 3.renaming -->
   <script>
@@ -42,9 +42,9 @@
       chosen_color: "dark"
     }
   }
-    // const {
-    //   color:{chosen_color:chosenColor = "ligth"} 
-    // } = settings2
+    const {
+      color:{chosen_color:chosenColor = "ligth"} 
+    } = settings2
 
     // 똑같은변수명이 있을경우에
     let chosenColor = "blue"
@@ -52,7 +52,7 @@
 
     ({ color: { chosen_color:chosenColor = "light" }} = settings2)
 
-    //console.log(chosenColor);
+    console.log(chosenColor);
   </script>
 <!-- 4.function -->
   <script>
@@ -85,20 +85,20 @@
   </script>
 <!-- 6.swapping and skipping -->
   <script>
-    let one = 2
-    let two = 1
+  //   let one = 2
+  //   let two = 1
 
-    const ch = [one,two]=[two, one]
-  // [two,one] = [2,1]
+  //   const ch = [one,two]=[two, one]
+  // // [two,one] = [2,1]
 
-    console.log(ch);
+  //   console.log(ch);
 
-    // 마지막 두개만 불러오고 싶을때 skipping
-   const number = ["one","two","three","four","five"];
+  //   // 마지막 두개만 불러오고 싶을때 skipping
+  //  const number = ["one","two","three","four","five"];
 
-   const [, , , four,five] = number;
+  //  const [, , , four,five] = number;
 
-   console.log(four,five);
+  //  console.log(four,five);
   </script>
 </body>
 </html>
