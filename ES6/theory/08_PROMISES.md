@@ -119,7 +119,7 @@ makePrimise
 ```
 - `then`을 몇개를 하던 간에 **`return`** 만 해주면 된다.
 
-👍🏿 ***my code***
+👍🏿 [***my code***](https://github.com/gay0ung/JS_study/blob/master/ES6/08_PROMISES.html)
 
 
 
