@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <script>
+    /* 1.createing promisies ------------------------------------*/
+    const makePrimise = new Promise((resolve,reject)=>{
+      //setTimeout(resolve,3000,"It is works") // // 1
+      // setTimeout(reject,1000,"You are ugly")// // 2
+      resolve(2) //3
+
+    })
+
+    //console.log(makePrimise);
+    // setInterval(console.log, 1000, makePrimise)
+
+    /* 2.using promisies ----------------------------------------*/
+    // makePrimise
+    //   .then(value =>console.log(value)) // setTimeout의 resolve값을 3초후에 반영해준다.(성공 했을때)
+    //   .catch(err =>console.log(err))  // reject 때 에러 처리
+    // then이 실행되면 catch는 실행 되지 않는다.
+
+    /* 3.chaining promisies -------------------------------------*/
+    const timeTwo = num => num * 2
+    makePrimise
+      .then(timeTwo)
+      .then(timeTwo)
+      .then(timeTwo)
+      .then(timeTwo)
+      .then(lastNum => console.log(lastNum))
+      .catch(err => console.log(err))
+    /* 4.promise.all --------------------------------------------*/
+    /* 5.promise.race -------------------------------------------*/
+    /* 6.finally-------------------------------------------------*/
+    /* 7.real world promises-------------------------------------*/
+
+  </script>
+</body>
+</html>
