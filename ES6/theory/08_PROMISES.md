@@ -107,12 +107,19 @@ makePrimise
 
 ### 🔹 chaining Promises
 ```js
+const  timeTwo  =  num  => num *  2
+
+makePrimise
+.then(timeTwo)
+.then(timeTwo)
+.then(timeTwo)
+.then(timeTwo)
+.then(lastNum  => console.log(lastNum)) // 32
+.catch(err  => console.log(err))
 ```
+- `then`을 몇개를 하던 간에 **`return`** 만 해주면 된다.
 
 👍🏿 ***my code***
-
- 
-
 
 
 
