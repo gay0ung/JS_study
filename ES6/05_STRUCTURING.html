@@ -37,39 +37,36 @@
   </script>
 <!-- 3.renaming -->
   <script>
-  const settings2 = {
+  const settings = {
     color: {
       chosen_color: "dark"
     }
-  }
-    const {
-      color:{chosen_color:chosenColor = "ligth"} 
-    } = settings2
+  };
+  // 똑같은변수명이 있을경우에
+  let chosenColor = "blue";
+  console.log(chosenColor);
 
-    // 똑같은변수명이 있을경우에
-    let chosenColor = "blue"
-    //console.log(chosenColor);
+  ({ color: { chosen_color: chosenColor="light" }} = settings)
 
-    ({ color: { chosen_color:chosenColor = "light" }} = settings2)
-
-    console.log(chosenColor);
+  console.log(chosenColor);
+  
   </script>
 <!-- 4.function -->
   <script>
-    function saveSettings({ notifications,color:{theme}}){
-      console.log(notifications,theme);
-    }
+    // function saveSettings({ notifications,color:{theme}}){
+    //   console.log(notifications,theme);
+    // }
 
-    saveSettings({
-      notifications:{
-        follow: true,
-        alert: true,
-        mrk: true,
-      },
-      color:{
-        theme:"blue"
-      }
-    })
+    // saveSettings({
+    //   notifications:{
+    //     follow: true,
+    //     alert: true,
+    //     mrk: true,
+    //   },
+    //   color:{
+    //     theme:"blue"
+    //   }
+    // })
   </script>
 <!-- 5.value shorthands -->
   <script>
