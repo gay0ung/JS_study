@@ -8,12 +8,11 @@
 <body>
   <script>
     /* 1.createing promisies ------------------------------------*/
-    const makePrimise = new Promise((resolve,reject)=>{
-      //setTimeout(resolve,3000,"It is works") // // 1
-      // setTimeout(reject,1000,"You are ugly")// // 2
-      resolve(2) //3
-
-    })
+    // const makePrimise = new Promise((resolve,reject)=>{
+    //   //setTimeout(resolve,3000,"It is works") // // 1
+    //   // setTimeout(reject,1000,"You are ugly")// // 2
+    //   resolve(2) //3
+    // })
 
     //console.log(makePrimise);
     // setInterval(console.log, 1000, makePrimise)
@@ -24,19 +23,63 @@
     //   .catch(err =>console.log(err))  // reject 때 에러 처리
     // then이 실행되면 catch는 실행 되지 않는다.
 
+
     /* 3.chaining promisies -------------------------------------*/
-    const timeTwo = num => num * 2
-    makePrimise
-      .then(timeTwo)
-      .then(timeTwo)
-      .then(timeTwo)
-      .then(timeTwo)
-      .then(lastNum => console.log(lastNum))
-      .catch(err => console.log(err))
+    // const timeTwo = num => num * 2
+    // makePrimise
+    //   .then(timeTwo)
+    //   .then(timeTwo)
+    //   .then(timeTwo)
+    //   .then(timeTwo)
+    //   .then(lastNum => console.log(lastNum))
+    //   .catch(err => console.log(err))
+
+
     /* 4.promise.all --------------------------------------------*/
+
+      // const p1 = new Promise(resolve=>{
+      //   setTimeout(resolve,10000,"Frist");
+      // })
+      // const p2 = new Promise((resolve,reject) => {
+      //   // setTimeout(resolve, 3000, "Second");
+      //    setTimeout(reject, 5000, "I hate JS");
+      // })
+      // const p3 = new Promise(resolve => {
+      //   setTimeout(resolve, 2000, "Third");
+      // })
+
+     // const motherPromise = Promise.all([p1,p2,p3]);   // 하나의 Promise를 반환한다.
+
+      // motherPromise
+      //   .then(values => console.log(values)) // ["Frist", "Second", "Third"]
+      //   .catch(err => console.log(err)) // 하나라도 reject한다면 err를 표기해준다.
+
+      // 5초후에 결과값이 순차적으로 나온다(모든 로직을 수행한 후에 결과를 반영해준다.)
+
+
     /* 5.promise.race -------------------------------------------*/
+    // const motherPromise = Promise.race([p1, p2, p3]);
+    // motherPromise
+    //         .then(values => console.log(values)) // Third
+    //         .catch(err => console.log(err))
+      
+    // resolve이던 reject이던 가장 빠른 promise를 결과로 보여준다.
+
     /* 6.finally-------------------------------------------------*/
+      // const pp1 = new Promise((resolve,reject) => {
+      //   setTimeout(reject,1000, "First")
+      // })  
+      //   .then(value => console.log(value))
+      //   .catch(err => console.log(`${err}❌`))
+      //   .finally(()=>console.log("Im done"))
+
+
     /* 7.real world promises-------------------------------------*/
+      fetch('http://127.0.0.1:5500/08_PROMISES.html')
+        .then(res => res.text())
+        .then(text => console.log(text))
+        .catch(e=>console.log(`❌ ${e}`))
+
 
   </script>
 </body>
