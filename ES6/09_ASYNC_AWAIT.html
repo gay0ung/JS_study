@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9.Async Await</title>
+</head>
+<body>
+  <script>
+
+    /* 1.Async Await */
+    // const getMoviesAsync  = async()=>{
+    // const response = await fetch("http://127.0.0.1:5500/09_ASYNC_AWAIT.html")
+
+    //  console.log(response);
+    // }
+
+    // getMoviesAsync();
+    // await는 then역할을 한다.
+
+    /* 2.try catch finally*/
+    const getMoviesAsync = async () => {
+     try { // 성공할때
+      const response = await fetch("http://127.0.0.1:5500/09_ASYNC_AWAIT.html")
+
+      console.log(response);
+      throw Error("Im hungry") // catch안에 있는것 뿐만 아니라 밖에 있는 error도 잡아 낸다.
+     } catch (error) { // 에러날때
+       console.log(error);
+     } finally {
+       console.log("we are done!");
+     }
+    }
+
+    getMoviesAsync();
+    /* 3.Parallel Async Await  병렬*/
+     const getMoviesAsync = async () => {
+        try { // 성공할때
+          const [moviesRes,upcomingRes] = await Promise.all([
+            fetch("http://127.0.0.1:5500/09_ASYNC_AWAIT.html"), 
+            fetch("http://127.0.0.1:5500/09_ASYNC_AWAIT.html")
+            // 서로 다른 api
+          ])
+
+          const [movies, upcoming] = await Promise.all([
+            moviesRes.json(), 
+            upcomingRes.json()
+          ])
+
+          console.log(movies, upcoming);
+
+        } catch (error) { // 에러날때
+          console.log(error);
+        } finally {
+          console.log("we are done!");
+        }
+      }
+
+      getMoviesAsync();
+  </script>
+</body>
+</html>
