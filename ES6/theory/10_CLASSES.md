@@ -25,7 +25,57 @@ helloUser.sayHello();
 
 >[Class mdn](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes)
 ## Extending Classes
+### this ?
 ```js
+sayHello()  {
+	console.log(`Hello, my name is ${this.username}`);
+	console.log(this);
+}
+```
+- this 는 `User {username: "ga young"}`를 가르킨다.
+
+### constructor 내용 바꾸기
+```js
+class  User  {
+	constructor(name,lastName,eamil,password)  {
+		this.username = name
+		this.lastName= lastName
+		this.eamil = eamil
+		this.password = password
+	}
+	sayHello()  {
+		console.log(`Hello, my name is ${this.username}`);
+	}
+	getProfile(){
+		console.log(`${this.username}  ${this.lastName}  ${  this.eamil}  ${  this.password}`);
+	}
+
+	updatePassword(newPassword,currentPassword){
+		return currentPassword ===  this.password 
+			?  this.password = newPassword 
+			: console.log('Can not change password.');
+	}
+}
+
+const helloUser =  new User("ga young",  "Lee",  "hello@naver.com",  "1234567");
+
+helloUser.updatePassword('565656','1234567');
+
+```
+### `extends` : 똑같이 복사해서 사용하기 
+```js
+class  Admin  extends  User{
+	deleteWebsite(){
+		console.log('Deleting the whole website.....');
+	}
+}
+
+// const helloAdmin = new Admin() // undefined
+const helloAdmin =  new Admin("ga young",  "Lee",  "hello@naver.com",  "1234567",true)
+
+helloAdmin.deleteWebsite();
+ 
+console.log(helloAdmin.eamil); //"hello@naver.com"
 ```
 
 ## super 
