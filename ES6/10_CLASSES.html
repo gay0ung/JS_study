@@ -8,21 +8,56 @@
 <body>
   <script>
     /* 1.Classes */
+    // class User {
+    //   constructor(name){
+    //     this.username = name
+    //   }
+    //   sayHello(){
+    //     console.log(`Hello, my name is ${this.username}`);
+    //   }
+    // }
+
+    // const helloUser = new User("ga young");
+
+    // helloUser.sayHello();
+
+    /* 2.Extending Classes */
     class User {
-      constructor(name){
+      constructor(name,lastName,eamil,password) {
         this.username = name
+        this.lastName= lastName
+        this.eamil = eamil
+        this.password = password
       }
-      sayHello(){
+      sayHello() {
         console.log(`Hello, my name is ${this.username}`);
+      }
+      getProfile(){
+        console.log(`${this.username} ${this.lastName} ${ this.eamil} ${ this.password}`);
+      }
+      updatePassword(newPassword,currentPassword){
+        return currentPassword === this.password ? this.password = newPassword : console.log('Can not change password.');
       }
     }
 
-    const helloUser = new User("ga young");
+    const helloUser = new User("ga young", "Lee", "hello@naver.com", "1234567");
 
-    helloUser.sayHello();
+    helloUser.updatePassword('565656','1234567');
 
-    /* 2.Extending Classes */
+    class Admin extends User{
+      constructor(superAdmin){
+        this.superadmin = superAdmin
+      }
+      deleteWebsite(){
+        console.log('Deleting the whole website.....');
+      }
+    }
 
+    // const helloAdmin = new Admin() // undefined
+    const helloAdmin = new Admin("ga young", "Lee", "hello@naver.com", "1234567",true)
+    helloAdmin.deleteWebsite();
+
+    console.log(helloAdmin.eamil);
 
     /* 3.super */
 
