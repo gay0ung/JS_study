@@ -22,7 +22,8 @@ const helloUser =  new User("ga young");
 helloUser.sayHello();
 ```
 - 클래스를 사용하기 위해서는 **클래스를 먼저 선언**해야 하며, 그렇지 않으면 `ReferenceError`를 반영한다.
-[Class mdn](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes)
+
+>[Class mdn](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes)
 ## Extending Classes
 ```js
 ```
