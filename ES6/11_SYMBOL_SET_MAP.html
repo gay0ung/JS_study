@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11_SYMBOL, SET AND MAP</title>
+</head>
+<body>
+  <h2>11_SYMBOL, SET AND MAP</h2>
+  <script>
+    /* 1.Symbol */
+    // const superBig = {
+    //   [Symbol("nico")]: {
+    //     age: 12
+    //   },
+    //   [Symbol("nico")]: {
+    //     age: 12
+    //   },
+    //   hello: "bye"
+    // }
+    // console.log(Object.keys(superBig)); // ["hello"] : Symbol값은 나오지 않는다.
+    // console.log(Object.getOwnPropertySymbols(superBig)); // [Symbol(nico), Symbol(nico)]
+
+    // const s = Object.getOwnPropertySymbols(superBig)
+    // s.forEach(symbol => console.log(symbol)) // ② Symbol(nico) 
+
+
+    /* 2.Sets */
+    const coolSet = new Set([1,2,3,4,5,6,7,7,7,8]);
+
+    // console.log(coolSet); // 중복되는 값을 없애 준다.
+    // console.log(coolSet.size); // Set 객체 내 값의 개수를 반환.
+    // console.log(coolSet.keys()); // 
+
+    // coolSet.add('hi')
+    // console.log(coolSet);  
+
+    // coolSet.delete('hi')
+    // console.log(coolSet);
+
+   // coolSet.clear() // Set객체내 모든 값을 지워준다.
+   // console.log(coolSet);
+
+    /* 3.WeakSet */
+    const weakSet  = new WeakSet();
+    const sexy = {
+      im : true
+    }
+    console.log(weakSet.add(sexy));
+
+    /* 4.Map and Weakmap */
+    const map = new Map()
+    console.log(map.set('key','value')); // {"key" => "value"}
+    console.log(map.has('key')); // true
+    console.log(map.get('key')); // value
+  </script>
+</body>
+</html>
