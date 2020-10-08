@@ -68,5 +68,5 @@ map.get('key')  // value
 
 > [Map mdn](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
-👍🏿 ***my code***
+👍🏿 [***my code***](https://github.com/gay0ung/JS_study/blob/master/ES6/11_SYMBOL_SET_MAP.html)
 
