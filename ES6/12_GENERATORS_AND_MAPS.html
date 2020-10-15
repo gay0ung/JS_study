@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12_GENERATORS_AND_MAPS</title>
+</head>
+<body>
+  <script>
+    /* 1.Generators */
+    const friends = ['one','two','three','four','five','six'];
+
+    function* friendTeller(){
+      for(const friend of friends){
+        yield friend;
+      }
+    }
+
+    
+    const friendLooper = friendTeller();
+    /* 2.Proxies */
+    /* 3.Should you learn proxies or generators? */
+    /* 4.Conclusions */
+  </script>
+</body>
+</html>
