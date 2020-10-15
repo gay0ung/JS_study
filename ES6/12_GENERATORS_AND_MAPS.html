@@ -15,12 +15,35 @@
         yield friend;
       }
     }
-
     
     const friendLooper = friendTeller();
+
+
     /* 2.Proxies */
-    /* 3.Should you learn proxies or generators? */
-    /* 4.Conclusions */
+    const userObj = {
+      username:'young',
+      age:26,
+      password:1234
+    }
+
+    const userFilter = {
+      get:(target,prop,receiver)=> {
+        if(prop === "passwer") `${"*".repeat(5)}`;
+      },
+      set:()=>{
+        console.log("Somebody wrote something");
+      },
+      deletePropperty:(target,prop)=>{
+        if(prop === "password"){
+          return
+        } else {
+          target[prop] = "DELETED"
+        }
+      }
+    }
+
+    const filteredUser = new Proxy(userObj, userFilter)
+    /* 3.Conclusions */
   </script>
 </body>
 </html>
