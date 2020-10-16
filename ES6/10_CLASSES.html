@@ -6,9 +6,21 @@
   <title>10.CLASSES</title>
 </head>
 <body>
-  <input type="text" placeholder="What's your name">
+  <div>
+    <h2>Count One</h2>
+    <span id="count"></span>
+    <button id="add">+</button>
+    <button id="minus">-</button>
+  </div>
+  <div>
+    <h2>Count Two</h2>
+    <span id="count2"></span>
+    <button id="add2">+</button>
+    <button id="minus2">-</button>
+  </div>
+  
   <script>
-    /* 1.Classes */
+    /* 1.Classes ------------------------------------------------------------------------*/
     // class User {
     //   constructor(name){
     //     this.username = name
@@ -22,67 +34,132 @@
 
     // helloUser.sayHello();
 
-    /* 2.Extending Classes */
-    class User {
-      constructor({ username, lastName, email, password}) {
-        this.username = username
-        this.lastName= lastName
-        this.email = email
-        this.password = password
+
+    /* 2.Extending Classes ---------------------------------------------------------------*/
+    // class User {
+    //   constructor(name,lastName, email, password) {
+    //     this.username = name;
+    //     this.lastName = lastName;
+    //     this.email = email;
+    //     this.password = password;
+    //   }
+
+    //   sayHello(){
+    //     console.log(`Hello, my name is ${this.username}`)
+    //   }
+
+    //   getProfile() {
+    //     console.log(`${this.username} ${this.lastName} ${this.email} ${this.password}`);
+    //   }
+
+    //   updatePassword(newPassword, currentPassword) {
+    //     return currentPassword === this.password 
+    //       ? this.password = newPassword 
+    //       : console.log("Can't change password!");
+    //   }
+    // }
+
+    // const createUser = new User("Ga young","lee","young@com","1234");
+
+    // createUser.getProfile(); // User {username: "Ga young", lastName: "lee", email: "young@com", password: "1234"}
+
+    // createUser.updatePassword("hello","1234"); // hello
+    // console.log(createUser.password);  
+
+    // 관리자만이 할수 있는 기능 (User의 일부를 변경하고 싶거나 전부 변경하고 싶을때)
+    // class Admin extends User {
+    //   deleteWebsite(){
+    //     console.log("Deleting the whole website...");
+    //   }
+    // }
+
+    // const createAdmin = new Admin("Ga young", "lee", "young@com", "1234");
+
+    // createAdmin.deleteWebsite();
+    // console.log(createAdmin.email);
+
+
+    /* 3.super -------------------------------------------------------------------------*/
+    // class User {
+    //     constructor({ username,lastName,email,password}) {
+    //       this.username = username
+    //       this.lastName = lastName
+    //       this.email = email
+    //       this.password = password
+    //     }
+    //     sayHello() {
+    //       console.log(`Hello, my name is ${this.username}`)
+    //     }
+    //     getProfile() {
+    //       console.log(`${this.username} ${this.lastName} ${this.email} ${this.password}`);
+    //     }
+    //     updatePassword(newPassword, currentPassword) {
+    //       return currentPassword === this.password
+    //         ? this.password = newPassword
+    //         : console.log("Can't change password!");
+    //     }
+    // }
+
+    // const createUser = new User({ 
+    //   username: "Ga young", 
+    //   lastName: "lee", 
+    //   email: "young@com", 
+    //   password: "1234"
+    // });
+
+    // class Admin extends User {
+    //   constructor({ username, lastName, email, password,superAdmin,isActive}){
+    //     super({ username, lastName, email, password}); // User을 불러온다.
+
+    //     this.superAdmin = superAdmin
+    //     this.isActive = isActive
+    //   }
+    //   deleteWebsite() {
+    //     console.log("Deleting the whole website...");
+    //   }
+    // }
+
+    // const admin = new Admin({
+    //   username: "Ga young",
+    //   lastName: "lee",
+    //   email: "young@com",
+    //   password: "1234",
+    //   superAdmin:true,
+    //   isActive:true
+    // })
+   
+  
+    /* 4.this ---------------------------------------------------------------------------*/
+
+    class Counter {
+        constructor({ initialNumber = 0, counterId, plusId, minusId }) {
+          this.count = initialNumber;
+          this.counter = document.getElementById(counterId);
+          this.counter.innerText = initialNumber;
+          this.plusBtn = document.getElementById(plusId);
+          this.minusBtn = document.getElementById(minusId);
+          this.addEventListener()
+        }
+        addEventListener() {
+          this.plusBtn.addEventListener('click', this.increase)
+          this.minusBtn.addEventListener('click', this.decrease)
+        }
+
+        increase = () => {
+          ++this.count
+          this.repaintCount()
+        }
+        decrease = () => {
+          --this.count
+          this.repaintCount()
+        }
+        repaintCount() {
+          this.counter.innerText = this.count
+        }
       }
-      sayHello() {
-        console.log(`Hello, my name is ${this.username}`);
-      }
-      getProfile(){
-        console.log(`${this.username} ${this.lastName} ${ this.eamil} ${ this.password}`);
-      }
-      updatePassword(newPassword,currentPassword){
-        return currentPassword === this.password 
-          ? this.password = newPassword 
-          : console.log('Can not change password.');
-      }
-    }
 
-    const helloUser = new User({ 
-      username:"ga young", 
-      lastName:"Lee", 
-      email:"hello@naver.com", 
-      password:"1234567"
-    });
-
-    // helloUser.updatePassword('565656','1234567');
-
-    class Admin extends User{
-      constructor({ username, lastName, email, password, superAdmin, isActive }){
-        super({ username, lastName, email, password }); // constructor (USER)
-        this.superAdmin = superAdmin;
-        this.isActive = isActive
-      }
-      deleteWebsite(){
-        console.log('Deleting the whole website.....');
-      }
-    }
-
-    // const helloAdmin = new Admin() // undefined
-    // const helloAdmin = new Admin("ga young", "Lee", "hello@naver.com", "1234567",true)
-    // helloAdmin.deleteWebsite();
-
-    // console.log(helloAdmin.eamil);
-
-    /* 3.super */
-    const admin  = new Admin({
-      username: "ga young",
-      lastName: "Lee",
-      email: "hello@naver.com",
-      password: "1234567",
-      superAdmin: true,
-      isActive: true
-    })
-
-    console.log(admin.email);
-    /* 4.this */
-
-    
+      new Counter({ counterId: "count", plusId: "add", minusId: "minus" })
+      new Counter({ counterId: "count2", plusId: "add2", minusId: "minus2", initialNumber: 666 })
   </script>
 </body>
 </html>
