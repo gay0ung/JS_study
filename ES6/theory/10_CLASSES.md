@@ -142,6 +142,8 @@ const admin =  new Admin({
 
 ## this 
 #### 예시
+<img src="https://github.com/gay0ung/JS_study/blob/master/ES6/images/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202020-10-16%20150950.jpg">
+
 ######  html
 ```html
 <div>
