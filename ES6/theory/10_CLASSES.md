@@ -194,9 +194,11 @@ new Counter({ counterId:  "count", plusId:  "add", minusId:  "minus"  })
 new Counter({ counterId:  "count2", plusId:  "add2", minusId:  "minus2", initialNumber:  666  })
 ```
 > **`function increase()` ,`function decrease()` 를 일반함수 로 사용했을때 *this.repaintCount*는 실행되지 않는다 이유는?**
+> 
 >  일반함수 일때 this를 찍어보면 해당 돔인 `<button></button>` 을 가르키므로 실행되지 않는다. 
->  
+
 >  **해결방법은?** 
+>  
 >  화살표 함수를 사용하면 `class`를 가르키게 된다.
 
 
