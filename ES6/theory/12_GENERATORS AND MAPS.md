@@ -1,4 +1,4 @@
-#### 🎯 ES6 : SDF
+#### 🎯 ES6 : Generators 
 ## Generators 
 #### 문법
 ```js
