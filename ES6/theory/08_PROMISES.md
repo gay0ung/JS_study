@@ -183,10 +183,27 @@ const pp1 =  new Promise(resolve  =>  {
 ##### 데이터 불러오기
 ```js
 fetch('http://127.0.0.1:5500/08_PROMISES.html')
-.then(res  => res.text())
-.then(text  => console.log(text))
-.catch(e=>console.log(`❌ ${e}`))
+ .then(res  => res.text())
+ .then(text  => console.log(text))
+ .catch(e=>console.log(`❌ ${e}`))
 ```
+
+
+## 🔹 Promise allSettled 
+```js
+const promise1 = Promise.resolve(3);
+const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+const promises = [promise1, promise2];
+
+Promise.allSettled(promises).
+  then((results) => results.forEach((result) => console.log(result.status)));
+
+// expected output:
+// "fulfilled"
+// "rejected"
+```
+
+> [promise.allSettled() mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
 
 👍🏿 [***my code***](https://github.com/gay0ung/JS_study/blob/master/ES6/08_PROMISES.html)
 
