@@ -9,19 +9,19 @@
   <script>
     /* 1.?? operator ---------------------------------------------------------------------*/
     const foo = null ?? 'default string';
-    console.log(foo); // default string
+    // console.log(foo); // default string
 
     const baz = 0 ?? 42;
-    console.log(baz); // 0
+    // console.log(baz); // 0
 
     // 변수에 기본값 할당.
     let myText = ''; 
 
     let notFalsyText = myText || 'Hello world';
-    console.log(notFalsyText); // Hello world
+    // console.log(notFalsyText); // Hello world
 
     let preservingFalsy = myText ?? 'Hi neighborhood';
-    console.log(preservingFalsy); // '' 
+    // console.log(preservingFalsy); // '' 
 
     /* 2.Optional Chaining ---------------------------------------------------------------*/
     const adventurer = {
@@ -34,8 +34,8 @@
     const dogName = adventurer.dog?.name;
     // adventurer.dog && adventurer.dog.name 을 간략화한것.
 
-    console.log(dogName); // undefined
-    console.log(adventurer.someNonExistentMethod?.()); //undefined
+    // console.log(dogName); // undefined
+    // console.log(adventurer.someNonExistentMethod?.()); //undefined
 
     /* 3.padStart and padEnd -------------------------------------------------------------*/
     let hours = 12,
@@ -45,24 +45,67 @@
       // console.log(`${hours}h:${minutes < 10 ? `0${minutes}` : minutes}m:${seconds}s`);
       minutes = String(minutes).padStart(2,"0").padEnd(3,"s") // 03s
       // minutes = "a".padStart(2,"0") // 0a
-      console.log(minutes); 
+      // console.log(minutes); 
 
     /* 4.trim,trimStart, trimEnd ---------------------------------------------------------*/
+    let str = "             hello!     ";
+
+    // console.log(str);
+    // console.log(str.trimStart());
+    // console.log(str.trimEnd());
+    // console.log(str.trim()); // 앞뒤 빈공간을 자른다.
 
 
     /* 5.Object entries, Object values, Object fromEntries -------------------------------*/
+    let person = {
+      name:'ga young',
+      age:26
+    }
+
+    // Object values
+    let values = Object.values(person) // ["ga young", 26]
+     console.log(values); //name ga young , age 26
+
+    // Object entries
+    let entries = Object.entries(person).forEach(item => console.log(item[0],item[1])) 
+   
+
+    // Object fromEntries
+    let fromEntries = Object.fromEntries([["name", "ga young"],["age", 26],["F","k"],["hello",true]])
+    console.log(fromEntries); // {name: "ga young", age: 26, F: "k", hello: true}
 
 
     /* 6.Array flat ----------------------------------------------------------------------*/
+    let newArray = [1,[2],[[3],[4]],[[4,5],[7,8]]]
 
+    console.log(newArray.flat()); // [1, 2, Array(1), Array(1), Array(2), Array(2)]
+    console.log(newArray.flat(2)); // [1, 2, 3, 4, 4, 5, 7, 8]
+    
 
     /* 7.Array sort ----------------------------------------------------------------------*/
+    let fruits = ["apple","strawberry", "avocado", "orange","banana"]
+    
+    let sortFruitByLength = fruits.sort((a,b)=>a.length - b.length)
 
+    console.log(sortFruitByLength); // ["apple", "orange", "banana", "avocado", "strawberry"]
 
-    /* 8.Promise allSettled --------------------------------------------------------------*/
+    // Objcet일때
+    const profile = [
+      {
+        name:"gayoung",
+        age:26
+      },
+      {
+        name:"woo",
+        age:24
+      }
+    ]
 
+    const orderPeopleByAge = (a,b) => b.age - a.age ;
 
- 
+    console.log(profile.sort(orderPeopleByAge));
+    // 0: {name: "gayoung", age: 26}
+    // 1: { name: "woo", age: 24 }
   </script>
 </body>
 </html> 
