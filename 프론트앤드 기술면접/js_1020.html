@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1019_js_기술면접 특강2</title>
+</head>
+<body>
+  <ul class="buttons">
+    <li>학교</li>
+    <li>집</li>
+    <li>공원</li>
+  </ul>
+  <div class="targets">
+    <div>학교에서 놀았습니다.</div>
+    <div>집에서 놀았습니다.</div>
+    <div>공원에서 놀았습니다.</div>
+  </div>
+  <script>
+    // 예시 문제
+    //VO (함수 안에서)
+    // var a = 10; // 글로벌 컨텍스트의 변수 
+
+    //   (function () {
+    //     var b = 20; // 함수 컨텍스트의 지역 변수 
+    //   })();
+
+    //   alert(a); // 어떤 값이 나올까요?
+    //   alert(b); // 어떤 값이 나올까요?
+    //  // b is not defined
+    
+    
+    // 콜스텍
+    // var a = 10;
+    // function test(x) {
+    //   var b = 20;
+    // };
+
+    // test(30);
+
+    // 콜스텍2
+    // function test(a, b) {
+    //   var c = 10;
+    //   function d() { }
+    //   var e = function _e() { };
+    //   (function x() { });
+    // }
+
+    // test(10); // call
+
+    // 클로저
+    // var data = []
+
+    // for (var i = 0; i < 3; i++) {
+    //   data[i]= (function(h){
+    //     return function realDo(){
+    //       console.log(h+2);
+    //     }
+    //   })(i);
+    // }
+
+    // data[0]()
+    // data[1]()
+    // data[2]()
+
+    // 클로저2
+  // function foo() {
+  //   const a = 10;
+  //   const b = 20;
+  //   function bar() {
+  //     debugger;
+  //     const sum = a + a;
+  //   }
+  //   return bar;
+  // }
+  // const bar = foo();
+
+  // 클로저 3
+  // let 증가 = (function(){
+  //   let num = 0;
+  //   return function (){
+  //     return ++num;
+  //   }
+  // })()
+
+  // console.log(증가());
+  // console.log(증가());
+  // console.log(증가());
+
+  //클로저 4
+  let buttons = document.querySelectorAll('.buttons > li')
+  let targets = document.querySelectorAll('.targets > div');
+  let colorCahrt = ["#DACB0D",'#0DDACB','#0D83DA']  ;
+
+  for(var i = 0; i < buttons.length; i++){// 포문돌때 실행
+    buttons[i].onclick = (function(j) { // 클릭될때 실행
+      return function(e){
+        if(e.target.classList.contains("on")) {
+           e.target.classList = ""
+          targets[j].style.backgroundColor = ''
+        } else {
+          e.target.classList = "on"
+          targets[j].style.backgroundColor = colorCahrt[j]
+        }
+        
+      }
+    })(i)
+  }
+  </script>
+</body>
+</html>
