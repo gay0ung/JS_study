@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1019_js_기술면접 특강3</title>
+</head>
+<body>
+  <script>
+    let name = "leegayoung";
+    console.log(name.length); // 10
+
+    let obj = {
+      name:name,
+      age:26
+    }
+ 
+
+    // class
+    let newObj = new Object(obj);
+    console.log(newObj.__proto__); // {name: "leegayoung", age: 26}
+
+    function gayoung() { }
+    console.dir(gayoung);
+
+    /* 기존 */
+    // function Transport(창문수, 바퀴수, 엔진수, 엑셀수){
+    //   this.className = '',
+    //   this.창문 = 창문수;
+    //   this.바퀴 = 바퀴수;
+    //   this.엔진 = 엔진수;
+    //   this.엑셀 = 엑셀수;
+    // }
+
+    // let car = new Transport(4,4,1,1);
+
+    /* class를 이용 2019년 생김 */
+    class Transport {
+      constructor(창문수, 바퀴수, 엔진수, 엑셀수){
+        this.창문 = 창문수;
+        this.바퀴 = 바퀴수;
+        this.엔진 = 엔진수;
+        this.엑셀 = 엑셀수;
+      }
+
+      소재 = '금속';
+      static type = ()=>{
+        let name = "sm6"
+      };
+      #sn = '12ke9300' //  Serial number -> 외부에서 접근할수 없다.읽을수도 없다.
+      static #company = "hello~"
+
+      cleanCar(){
+        return '세차했다!';
+      } //-> 유산이 될수있는 함수(get이 없는)
+
+      get basicInfo(){
+        return `소재는 ${this.소재} 이고, S/N 은 ${this.#sn}`
+      } // 무조건 return을해줘야 한다. // 유산이 되는 애는 아니다 그냥 저장만 해놓는 애이다. computed같은 역할이다
+
+      set 탑승객(승객){
+        if(승객 > 5 ){
+          this.바퀴 = this.바퀴 + 2
+        } 
+      } // 파라미터가 반드시 있어야 하낟.
+    }
+
+    let car = new Transport(4,4,1,1)
+    console.log(car);
+  </script>
+</body>
+</html>
