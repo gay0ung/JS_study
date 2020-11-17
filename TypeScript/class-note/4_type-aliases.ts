@@ -1,8 +1,8 @@
 // 인터페이스인 경우
-// interface Person {
-//   name: string;
-//   age: number;
-// }
+interface Person {
+  name: string;
+  age: number;
+}
 
 // 타입별칭인 경우
 type Person = {
