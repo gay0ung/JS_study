@@ -63,10 +63,42 @@
 
 // const obj: Dropdown = {value:10, selected:false}
 
-interface Dropdown<T> {
-  value: T;
-  selected: boolean;
+// interface Dropdown<T> {
+//   value: T;
+//   selected: boolean;
+// }
+
+// const obj: Dropdown<string> = {value: 'abc', selected: false}
+// const obj: Dropdown<number> = {value: 10, selected: false}
+
+/* 제네릭의 타입제한 */
+// function logoTextLength<T>(text:T[]):T[]{
+//   console.log(text.length);
+  
+//   return text
+// }
+
+// logoTextLength<string>(['hi'])
+
+/* 제네릭의 타입제한2 - 정의된 타입 이용하기 */
+interface lengthType {
+  length: number;
 }
 
-const obj: Dropdown<string> = {value: 'abc', selected: false}
-// const obj: Dropdown<number> = {value: 10, selected: false}
+function logoTextLength<T extends lengthType>(text: T): T {
+  console.log(text.length);
+  return text;
+}
+
+/* 제네릭의 타입제한2 - keyof */
+interface SoppingItem{
+  name:string;
+  price:number;
+  stock:number
+}
+
+function getShoppingItemOption<T extends keyof SoppingItem>(itemOption:T):T{
+  return itemOption
+}
+
+getShoppingItemOption('name')
