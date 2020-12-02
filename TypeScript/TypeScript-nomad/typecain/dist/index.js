@@ -38,7 +38,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // } 
 // console.log(sayHi(olive));
 // #8,9 : blockchain creating a block---------------------------------------
-const CrytoJS = require("crypto-js");
+const CryptoJS = require("crypto-js");
 class Block {
     constructor(index, hash, previousHash, data, timestamp) {
         this.index = index;
@@ -49,14 +49,59 @@ class Block {
     }
 }
 // static키워드 사용으로 블로체인 밖에서도 함수사용가능
-Block.calculateBlockHash = (index, previousHash, data, timestamp) => CrytoJS.SHA256(index + previousHash + timestamp + data).toString();
+Block.calculateBlockHash = (index, previousHash, timestamp, data) => CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
+// # 11
+Block.validateStructure = (aBlock) => typeof aBlock.index === "number" &&
+    typeof aBlock.hash === "string" &&
+    typeof aBlock.previousHash === "string" &&
+    typeof aBlock.timestamp === "number" &&
+    typeof aBlock.data === "string";
 //#8
-const genesisBlock = new Block(0, "202020202020", "", "HELLO", 123456);
+const genesisBlock = new Block(0, "2020202020202", "", "Hello", 123456);
 let blockchain = [genesisBlock];
-console.log(blockchain);
 // #9
 // Block.calculateBlockHash() // 블록체인형식이아니여도 함수를 사용할수 있다.
-const getBlockChain = () => blockchain;
-const getLatesBlock = () => blockchain[blockchain.length - 1];
+const getBlockchain = () => blockchain;
+const getLatestBlock = () => blockchain[blockchain.length - 1];
 const getNewTimeStamp = () => Math.round(new Date().getTime() / 1000);
+// #10
+const createNewBlock = (data) => {
+    const previousBlock = getLatestBlock();
+    const newIndex = previousBlock.index + 1;
+    const newTimestamp = getNewTimeStamp();
+    const newHash = Block.calculateBlockHash(newIndex, previousBlock.hash, newTimestamp, data);
+    const newBlock = new Block(newIndex, newHash, previousBlock.hash, data, newTimestamp);
+    // #13
+    addBlock(newBlock);
+    return newBlock;
+};
+// #12
+const getHashforBlock = (aBlock) => Block.calculateBlockHash(aBlock.index, aBlock.previousHash, aBlock.timestamp, aBlock.data);
+// #11
+const isBlockValid = (candidateBlock, previousBlock) => {
+    if (!Block.validateStructure(candidateBlock)) {
+        return false;
+    }
+    else if (previousBlock.index + 1 !== candidateBlock.index) {
+        return false;
+    }
+    else if (previousBlock.hash !== candidateBlock.previousHash) {
+        return false;
+    }
+    else if (getHashforBlock(candidateBlock) !== candidateBlock.hash) {
+        return false;
+    }
+    else {
+        return true;
+    }
+};
+const addBlock = (candidateBlock) => {
+    if (isBlockValid(candidateBlock, getLatestBlock())) {
+        blockchain.push(candidateBlock);
+    }
+};
+createNewBlock("second block");
+createNewBlock("third block");
+createNewBlock("fourth block");
+console.log(blockchain);
 //# sourceMappingURL=index.js.map
