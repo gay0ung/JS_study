@@ -10,7 +10,8 @@
 	**비동기처리** :  카페에 직원이 한명 이상이고 한쪽은 주문을 받을수도 한쪽은 음료를 받을 수 있어 빠른 속도로 손님을 받을 수가 있다.
 - 서버에서 데이터를 가져와서 화면에 표시하는 작업을 수행할 때, 서버에 데이터를 요청하고 데이터가 응답될 때까지 이후 태스크들은 블로킹(blocking,작업중단)된다.
 
-![enter image description here](https://ifh.cc/g/VkyY6T.jpg)
+![ ](https://github.com/gay0ung/TIL_note/blob/master/images/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC%EB%AA%A8%EB%8D%B8.jpg?raw=true)
+
 ####  동기식으로 동작하는 코드
 ```js
 function  fun1(){
@@ -31,8 +32,8 @@ fun1()
 ```
 
 > 결과
-> 
-> ![enter image description here](https://ifh.cc/g/FHm2iB.jpg)
+> ![ ](https://github.com/gay0ung/TIL_note/blob/master/images/javascript/%EB%8F%99%EA%B8%B0%20%EA%B2%B0%EA%B3%BC.jpg?raw=true)
+
 
 
  ## 🔹비동기식 처리 모델(Asynchronous processing model)
@@ -40,7 +41,8 @@ fun1()
  - 태스크가 종료되지 않은 상태라고 해도 대기하지 않고 다음 태스크를 실행한다.
  - 예를 들어 서버에서 데이터를 가져와서 화면에 표시하는 태스크를 수행할 때, 서버에 데이터를 요청한 이후 서버로부터 데이터가 응답될 때까지 대기하지 않고(Non-Blocking)즉시 다음 태스크를 수행한다. 이후 서버로부터 데이터가 응답되면 이벤트가 발생하고 이벤트 핸들러가 데이터를 가지고 수행할 태스크를 계속해 수행한다.
 
-![enter image description here](https://ifh.cc/g/8WtLBJ.jpg)
+![ ](https://github.com/gay0ung/TIL_note/blob/master/images/javascript/%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC%EB%AA%A8%EB%8D%B8.jpg?raw=true)
+
 ####  비동기식으로 동작 하는 코드
 ```js
 function  fun1(){
@@ -64,7 +66,7 @@ fun1()
 ```
 
 > 결과
-> ![enter image description here](https://ifh.cc/g/uiMkhD.jpg)
+> ![ ](https://github.com/gay0ung/TIL_note/blob/master/images/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%20%EA%B2%B0%EA%B3%BC.jpg?raw=true)
 
 
 
@@ -73,8 +75,7 @@ fun1()
 > `fun1`이 호출되면 함수 `fun1`은 Call Stack에 쌓인다. 그리고 함수 `func1`은 함수 `func2`을 호출하므로 함수 `func2`가 Call Stack에 쌓이고 setTimeout가 호출된다. 
 > **`setTimeout`의 콜백함수는 즉시 실행되지 않고 지정 대기 시간만큼 기다리다가 “tick” 이벤트가 발생하면 태스크 큐로 이동한 후 Call Stack이 비어졌을 때 Call Stack으로 이동되어 실행된다.**
 > 
-> ![enter image description here](https://ifh.cc/g/vyxH1k.jpg)
-
+> ![ ](https://github.com/gay0ung/TIL_note/blob/master/images/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%20%EC%8B%A4%ED%96%89%EC%88%9C%EC%84%9C.jpg?raw=true)
 ###### [참고 사이트: Poiemaweb](https://poiemaweb.com/js-async)
 
 #  Promises
