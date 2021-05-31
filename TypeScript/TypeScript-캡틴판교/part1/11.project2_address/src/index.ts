@@ -1,21 +1,4 @@
-interface PhoneNumberDictionary {
-  [phone: string]: {
-    num: number;
-  };
-}
-
-interface Contact {
-  name: string;
-  address: string;
-  phones: PhoneNumberDictionary;
-}
-
-enum PhoneType {
-  Home = 'home',
-  Office = 'office',
-  Studio = 'studio',
-}
-
+import { Contact, PhoneType } from './type';
 // api
 // TODO: 아래 함수의 반환 타입을 지정해보세요.
 // :promise는 무조건 promise를 반환해야 한다.
