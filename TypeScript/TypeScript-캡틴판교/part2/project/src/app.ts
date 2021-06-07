@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as Chart from 'chart.js';
 
 // utils
 function $(selector: string) {
@@ -216,7 +217,7 @@ function setTotalConfirmedNumber(data: any) {
 
 function setTotalDeathsByWorld(data: any) {
   deathsTotal.innerText = data.Countries.reduce(
-    (tota: any, current: any) => (total += current.TotalDeaths),
+    (total: any, current: any) => (total += current.TotalDeaths),
     0
   );
 }
