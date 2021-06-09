@@ -1,4 +1,5 @@
-"use strict";
+// import axios from 'axios';
+// import * as Chart from 'chart.js';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,8 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var axios_1 = require("axios");
 // utils
 function $(selector) {
     return document.querySelector(selector);
@@ -71,7 +70,7 @@ var isRecoveredLoading = false;
 // api
 function fetchCovidSummary() {
     var url = 'https://api.covid19api.com/summary';
-    return axios_1.default.get(url);
+    return axios.get(url);
 }
 var CovidStatus;
 (function (CovidStatus) {
@@ -81,7 +80,7 @@ var CovidStatus;
 })(CovidStatus || (CovidStatus = {}));
 function fetchCountryInfo(countryCode, status) {
     var url = "https://api.covid19api.com/country/" + countryCode + "/status/" + status;
-    return axios_1.default.get(url);
+    return axios.get(url);
 }
 // methods
 function startApp() {
@@ -225,14 +224,16 @@ function setChartData(data) {
     var chartData = data.slice(-14).map(function (value) { return value.Cases; });
     var chartLabel = data
         .slice(-14)
-        .map(function (value) { return new Date(value.Date).toLocaleDateString().slice(5, -1); });
+        .map(function (value) {
+        return new Date(value.Date).toLocaleDateString().slice(5, -1);
+    });
     renderChart(chartData, chartLabel);
 }
 function setTotalConfirmedNumber(data) {
     confirmedTotal.innerText = data.Countries.reduce(function (total, current) { return (total += current.TotalConfirmed); }, 0);
 }
 function setTotalDeathsByWorld(data) {
-    deathsTotal.innerText = data.Countries.reduce(function (tota, current) { return (total += current.TotalDeaths); }, 0);
+    deathsTotal.innerText = data.Countries.reduce(function (total, current) { return (total += current.TotalDeaths); }, 0);
 }
 function setTotalRecoveredByWorld(data) {
     recoveredTotal.innerText = data.Countries.reduce(function (total, current) { return (total += current.TotalRecovered); }, 0);
