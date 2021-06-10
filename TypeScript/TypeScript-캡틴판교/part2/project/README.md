@@ -19,6 +19,7 @@
   - bable, eslint, prettier 등의 환경 설정
 
 4. 외브라이브러리 모듈화
+5.`strict` 옵션 추가 후 타입 정의
 
 ## 참고 자료
 
