@@ -9,3 +9,17 @@ let name = prompt("what is your name?");
 name ||= "anonymous";
 
 console.log(`Hello ${name}`);
+
+// 2. Logical AND Assignment
+const user = {
+    username: 'young',
+    password: 1234
+}
+
+// if (user.password) {
+//     user.password = "[secret]"
+// }
+
+user.password &&= "[secret]";
+
+console.log(user);
